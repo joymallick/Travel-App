@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MapWorld.Views.StartPage"
+             xmlns:viewModels="clr-namespace:MapWorld.ViewModels"
+             >
+    <ContentPage.BindingContext>
+        <viewModels:StartPageViewModel/>
+    </ContentPage.BindingContext>
+
+
+
+    <StackLayout Background="#1bd414" >
+        <StackLayout Orientation="Horizontal" BackgroundColor="#98ec95">
+            <Label Text="This page will show different flags" HorizontalOptions="CenterAndExpand"  TextColor="Black" FontSize="20" FontAttributes="Bold" Margin="1"/>
+
+        </StackLayout>
+        
+        <CarouselView ItemsSource="{Binding countries}" HeightRequest="950" PeekAreaInsets="120" BackgroundColor="#1bd414">
+
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+
+                    <StackLayout>
+                        <Frame  WidthRequest="180"   Padding="1"
+                           HasShadow="True" Margin="10" CornerRadius="20"
+                           HorizontalOptions="CenterAndExpand" >
+                            <Grid>
+                                <StackLayout>
+                                    <Image Source="{Binding img}" Aspect="Fill"
+                                           HeightRequest="700" Opacity="1.5"/>
+                                </StackLayout>
+
+                                
+                                <StackLayout  HeightRequest="40" HorizontalOptions="EndAndExpand" 
+                                       >
+                                    <StackLayout Orientation="Horizontal" Margin="10,3,25,30">
+                                        <Image Source="https://www.freepnglogos.com/uploads/pin-png/orange-map-pin-transparent-png-stickpng-17.png"
+                                               HeightRequest="20" Margin="5,0"/>
+                                        <Label Text="{Binding country}" TextColor="Black" FontSize="15" 
+                                               FontAttributes="None"  
+                                               VerticalOptions="EndAndExpand" />
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </Grid>
+
+
+                        </Frame>
+                    </StackLayout>
+
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+
+
+        <StackLayout Orientation="Horizontal" Background="#98ec95">
+            
+            <Label HorizontalOptions="CenterAndExpand" Text="Below are the capitals" TextColor="Gray" FontSize="18" FontAttributes="None" VerticalTextAlignment="Center" Margin="10"/>
+
+        </StackLayout>
+
+
+        <CarouselView ItemsSource="{Binding countries}" PeekAreaInsets="100" BackgroundColor="#1bd414">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Frame HeightRequest="150" WidthRequest="180"   Padding="1"
+                           HasShadow="True" Margin="10" CornerRadius="20" BackgroundColor="#98ec95"
+                           HorizontalOptions="CenterAndExpand">
+                            <Grid>
+                                <StackLayout Margin="5" Orientation="Vertical" >
+
+                                    <Label   Text="{Binding country}" HorizontalTextAlignment="Center" TextColor="Gray" FontSize="18" FontAttributes="Bold"  Margin="1" ></Label>
+
+                                    <Image Source="Capitals.jpg"
+                                               HeightRequest="50" Margin="5,0"/>
+
+
+
+                                    <Label  Text="{Binding capital}" HorizontalTextAlignment="Center"  TextColor="Gray" FontSize="18" FontAttributes="None"  Margin="1" ></Label>
+
+
+                                </StackLayout >
+                            </Grid>
+                            
+                        </Frame>
+                    </StackLayout>
+                      
+                       
+                        
+
+
+
+
+                    
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        
+        
+
+        
+
+        <StackLayout  VerticalOptions="CenterAndExpand">
+            <Button BackgroundColor="CadetBlue" VerticalOptions="Center" Margin="1" CornerRadius="20" Text="Weather Page" TextColor="Black" Command="{Binding NavigateToNextPageCommand}" ></Button>
+        </StackLayout>
+        <StackLayout  VerticalOptions="CenterAndExpand">
+            <Button BackgroundColor="CadetBlue" VerticalOptions="Center" Margin="5" CornerRadius="20" Text="Info Page" TextColor="Black" Command="{Binding NavigateToNextPageCommand2}" ></Button>
+        </StackLayout>
+
+
+
+
+
+    </StackLayout>
+
+</ContentPage>

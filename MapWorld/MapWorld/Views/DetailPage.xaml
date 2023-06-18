@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+             xmlns:xyt="http://xamarin.com/schemas/2020/toolkit" xmlns:viewmodels="clr-namespace:MapWorld.ViewModels" 
+             x:Class="MapWorld.Views.DetailPage">
+    
+    <ContentPage.BindingContext>
+        <viewmodels:DetailPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <ControlTemplate x:Key="CustomTab">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    
+                    </Grid.RowDefinitions>
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="3*"/>
+                        
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="{TemplateBinding Text}" HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0" TextColor="{TemplateBinding CurrentTextColor}"/>
+                    <BoxView Color="Orange" HeightRequest="10" WidthRequest="10" Grid.Row="1" Grid.Column="1"
+                             HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                             CornerRadius="30" IsVisible="{TemplateBinding IsSelected}" />
+
+                </Grid>
+            </ControlTemplate>
+
+            <Style
+                x:Key="CustomTabStyle"
+                TargetType="xyt:TabView">
+                <Setter
+                    Property="IsTabTransitionEnabled"
+                    Value="True"/>
+                <Setter
+                    Property="TabStripHeight"
+                    Value="48"/>
+                <Setter
+                    Property="TabContentBackgroundColor"
+                    Value="#484848"/>
+                <Setter
+                    Property="TabStripPlacement"
+                    Value="Top"/>
+            </Style>
+                
+                
+
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+
+
+
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Grid>
+
+                    <Frame Padding="0" HeightRequest="450">
+                        <Image Source="bridge.jpg" Aspect="AspectFill"/>
+                    </Frame>
+                    <StackLayout VerticalOptions="EndAndExpand" Margin="15,15,15,85" Orientation="Vertical">
+                        
+
+                    </StackLayout>
+                </Grid>
+
+                <Grid VerticalOptions="FillAndExpand" Margin="0,-30,0,0" Padding="0" BackgroundColor="#324f91">
+                    <Frame CornerRadius="25"   BackgroundColor="#324f91" >
+
+                        <Grid>
+                            <xyt:TabView Style="{StaticResource CustomTabStyle}">
+                                <xyt:TabViewItem
+                                    ControlTemplate="{StaticResource CustomTab}"
+                                    Text="Italy" TextColorSelected="Red">
+                                    <StackLayout  BackgroundColor="#324f91">
+                                        <Grid >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+
+                                            <StackLayout Grid.Column="0"  
+                                                     HeightRequest="65" VerticalOptions="Start"
+                                                     >
+
+                                                <Grid  BackgroundColor="#324f91">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    
+
+                                                    <StackLayout Grid.Column="0" Grid.RowSpan="1"  
+                                                     HeightRequest="100" VerticalOptions="Start"
+                                                      BackgroundColor="#324f91">
+                                                        <Image Source="Pizza.jpeg" Aspect="AspectFill"
+                                                           />
+
+                                                    </StackLayout>
+
+                                                    <StackLayout Grid.Column="1"
+                                                     HeightRequest="50" VerticalOptions="Start">
+                                                     
+                                                        <Label Text="This a famous food" VerticalOptions="EndAndExpand"
+                                                           FontAttributes="Bold" TextColor="DarkGray"/>
+
+                                                    </StackLayout>
+
+                                                    
+
+                                                </Grid>
+
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Column="1"
+                                                     HeightRequest="100" VerticalOptions="Start"
+                                                     
+                                                     >
+
+                                                <Grid  BackgroundColor="#324f91">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <StackLayout Grid.Column="0" Grid.RowSpan="2"  
+                                                     HeightRequest="150" VerticalOptions="Start"
+                                                      BackgroundColor="#324f91">
+                                                        <Image Source="Colosseum.jpeg" Aspect="AspectFit"
+                                                           VerticalOptions="CenterAndExpand"/>
+
+                                                    </StackLayout>
+
+                                                    <StackLayout Grid.Column="1"
+                                                     HeightRequest="180" VerticalOptions="Start"
+                                                      BackgroundColor="#324f91"
+                                                     >
+                                                        <Label Text="This a spot in Rome" VerticalOptions="EndAndExpand"
+                                                           FontAttributes="Bold" TextColor="Black"/>
+
+                                                    </StackLayout>
+
+                                                    <StackLayout Grid.Row ="1" Grid.Column="1"
+                                                     HeightRequest="180" VerticalOptions="Start"  BackgroundColor="#324f91"
+                                                     
+                                                     >
+                                                        
+
+                                                    </StackLayout>
+
+                                                </Grid>
+
+                                            </StackLayout>
+
+                                        </Grid>
+
+                                        <StackLayout>
+                                            <Label Text="The button below will take you to next page"  FontSize="15" Margin="30" HorizontalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+
+                                        
+                                    </StackLayout>
+                                    
+                                    
+                                    
+                                    
+
+                                </xyt:TabViewItem>
+                                <xyt:TabViewItem
+                                    ControlTemplate="{StaticResource CustomTab}"
+                                    Text="Paris" TextColorSelected="Red">
+                                    <StackLayout  BackgroundColor="#324f91">
+                                        <Grid >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+
+                                            <StackLayout Grid.Column="0"  
+                                                     HeightRequest="65" VerticalOptions="Start"
+                                                     >
+
+                                                <Grid  BackgroundColor="#324f91">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    
+
+                                                    <StackLayout Grid.Column="0" Grid.RowSpan="1"  
+                                                     HeightRequest="100" VerticalOptions="Start"
+                                                      BackgroundColor="#324f91">
+                                                        <Image Source="crossaint.jpeg" Aspect="AspectFill"
+                                                           />
+
+                                                    </StackLayout>
+
+                                                    <StackLayout Grid.Column="1"
+                                                     HeightRequest="50" VerticalOptions="Start">
+                                                     
+                                                        <Label Text="This a famous food" VerticalOptions="EndAndExpand"
+                                                           FontAttributes="Bold" TextColor="DarkGray"/>
+
+                                                    </StackLayout>
+
+                                                    
+
+                                                </Grid>
+
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Column="1"
+                                                     HeightRequest="100" VerticalOptions="Start"
+                                                     
+                                                     >
+
+                                                <Grid  BackgroundColor="#324f91">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <StackLayout Grid.Column="0" Grid.RowSpan="2"  
+                                                     HeightRequest="150" VerticalOptions="Start"
+                                                      BackgroundColor="#324f91">
+                                                        <Image Source="Eiffel.jpeg" Aspect="AspectFit"
+                                                           VerticalOptions="CenterAndExpand"/>
+
+                                                    </StackLayout>
+
+                                                    <StackLayout Grid.Column="1"
+                                                     HeightRequest="180" VerticalOptions="Start"
+                                                      BackgroundColor="#324f91"
+                                                     >
+                                                        <Label Text="This a spot in Paris" VerticalOptions="EndAndExpand"
+                                                           FontAttributes="Bold" TextColor="Black"/>
+
+                                                    </StackLayout>
+
+                                                    <StackLayout Grid.Row ="1" Grid.Column="1"
+                                                     HeightRequest="180" VerticalOptions="Start"  BackgroundColor="#324f91"
+                                                     
+                                                     >
+                                                        
+
+                                                    </StackLayout>
+
+                                                </Grid>
+
+                                            </StackLayout>
+
+                                        </Grid>
+
+                                        <StackLayout>
+                                            <Label Text="The button below will take you to map page"  FontSize="15" Margin="30" HorizontalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+
+                                        
+                                    </StackLayout>
+                                    
+                                    
+                                    
+                                    
+
+                                </xyt:TabViewItem>
+                                
+
+
+                            </xyt:TabView>
+                      </Grid>
+
+
+
+                    </Frame>
+
+                    <pancake:PancakeView CornerRadius="50"  BackgroundColor="#324f91" Margin="15,-45,20,15" HeightRequest="80" WidthRequest="80" Padding="5"
+                           HorizontalOptions="EndAndExpand"
+                           VerticalOptions="Start">
+                        <pancake:PancakeView.Shadow>
+                            <pancake:DropShadow Color="Black" BlurRadius="2" Offset="2,1"/>
+                        </pancake:PancakeView.Shadow>
+                        <Image Source="Ok2.jpeg" Aspect="Fill" />
+
+                    </pancake:PancakeView>
+                </Grid>
+
+
+            </StackLayout>
+            <StackLayout VerticalOptions="EndAndExpand">
+                <pancake:PancakeView BackgroundColor="#758ABA"  HeightRequest="50" Padding="0" CornerRadius="20"  VerticalOptions="EndAndExpand">
+                    <Button Text="Map Page" HorizontalOptions="CenterAndExpand" Command="{Binding NavigateToNextPageCommand}" />
+                </pancake:PancakeView>
+                     
+            </StackLayout>
+
+
+        </Grid>
+    </ContentPage.Content>
+
+        
+</ContentPage>
